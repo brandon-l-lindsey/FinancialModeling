@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-app='angular-toArrayFilter'>
+    
+    
+    <head>
+        
+        <title>Financial Modeling App Using Angular and Chart.js</title>
+        
+        <script type=text/javascript src="angular.min.js"></script>
+        <script src="toArrayFilter.js"></script>
+        <script type=text/javascript src="app.js"></script>
+        
+    </head>
+    
+    
+    
+    
+    <body>
+    
+        <div ng-controller="TickerController">
+            <input type="text" ng-model="search" placeholder="Search for a stock"/>
+            <button ng-click="newSearch(search); searchBySymbol()">Search by Ticker</button>
+            <button ng-click="newSearch(search); searchByName()">Search by Name</button>
+            
+            <ul>                
+                <li ng-show="symbolSearch" ng-repeat="ticker in tickers |toArray:false | filter:{symbol:currentSearch}:startsWith | orderBy:'symbol'">{{ticker.symbol}} --- {{ticker.name}}
+                </li>
+                <li ng-show="nameSearch" ng-repeat="ticker in tickers |toArray:false | filter:{name:currentSearch}:startsWith | orderBy:'name'">{{ticker.symbol}} --- {{ticker.name}}
+                </li>
+            </ul>
+            
+        </div>
+        
+        
+    </body>
+</html>
