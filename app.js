@@ -67,15 +67,34 @@ myApp.controller('GraphController', ['$scope', '$http', function($scope, $http){
             var xValues = [];
             var yValues = [];
             angular.forEach($scope.messyData, function(value, key) {
-                xValues.push(key);
-                yValues.push(value["5. adjusted close"]);
+                xValues.unshift(key);
+                yValues.unshift(value["5. adjusted close"]);
             });
             $scope.xValues = xValues;
             $scope.yValues = yValues;
-            
-            
        });
     
+    
+      
+//      $scope.options = {
+//        scales: {
+//          yAxes: [
+//            {
+//              id: 'y-axis-1',
+//              type: 'linear',
+//              display: true,
+//              position: 'left'
+//            },
+//            {
+//              id: 'y-axis-2',
+//              type: 'linear',
+//              display: true,
+//              position: 'right'
+//            }
+//          ]
+//        }
+//      };
+//    
 
     
     
