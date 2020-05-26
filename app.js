@@ -50,9 +50,7 @@ myApp.controller('TickerController', ['$scope', '$http', function($scope, $http)
 
 myApp.controller('GraphController', ['$scope', '$http', function($scope, $http){
     
-    $scope.APIKey = 'H5XW676HRUVKHEFX';
-    $scope.gettingToData = "Monthly Adjusted Time Series"
-    
+    $scope.APIKey = 'H5XW676HRUVKHEFX';    
     
 //    $http({
 //      method: 'GET',
@@ -60,14 +58,22 @@ myApp.controller('GraphController', ['$scope', '$http', function($scope, $http){
 //   }).then(function (result){
 //        $scope.tickers = result.data;
 //   });
-
-    $http({
-      method: 'GET',
-      url: 'json/testPrices.json'
-   }).then(function (result){
-        $scope.prices = result.data["Monthly Adjusted Time Series"];
-   });
     
+        $http({
+          method: 'GET',
+          url: 'json/testPrices.json'
+       }).then(function (result){
+            $scope.messyData = result.data["Monthly Adjusted Time Series"];
+            var ret = [];
+            angular.forEach($scope.messyData, function(value) {
+                this.push(value["5. adjusted close"]);
+            }, ret);
+            $scope.finishedNumbers = ret;
+            
+            
+       });
+    
+
     
     
 }])
