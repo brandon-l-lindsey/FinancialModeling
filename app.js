@@ -64,11 +64,14 @@ myApp.controller('GraphController', ['$scope', '$http', function($scope, $http){
           url: 'json/testPrices.json'
        }).then(function (result){
             $scope.messyData = result.data["Monthly Adjusted Time Series"];
-            var ret = [];
-            angular.forEach($scope.messyData, function(value) {
-                this.push(value["5. adjusted close"]);
-            }, ret);
-            $scope.finishedNumbers = ret;
+            var xValues = [];
+            var yValues = [];
+            angular.forEach($scope.messyData, function(value, key) {
+                xValues.push(key);
+                yValues.push(value["5. adjusted close"]);
+            });
+            $scope.xValues = xValues;
+            $scope.yValues = yValues;
             
             
        });
