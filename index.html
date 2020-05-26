@@ -7,6 +7,7 @@
         <title>Financial Modeling App Using Angular and Chart.js</title>
         
         <script type=text/javascript src="angular.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
         <script src="toArrayFilter.js"></script>
         <script type=text/javascript src="app.js"></script>
         
@@ -30,6 +31,13 @@
             </ul>
             
         </div>
+        
+        <div ng-controller = "GraphController">
+            {{prices}}
+        
+        </div>
+        
+        
         
         
     </body>

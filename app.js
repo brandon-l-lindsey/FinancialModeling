@@ -37,7 +37,7 @@ myApp.controller('TickerController', ['$scope', '$http', function($scope, $http)
     
     $http({
       method: 'GET',
-      url: 'TickerSymbols/data.json'
+      url: 'json/data.json'
    }).then(function (result){
         $scope.tickers = result.data;
    });
@@ -45,8 +45,28 @@ myApp.controller('TickerController', ['$scope', '$http', function($scope, $http)
     $scope.newSearch = function(userInput){
         $scope.currentSearch = userInput;
     }
+}])
+
+
+myApp.controller('GraphController', ['$scope', '$http', function($scope, $http){
     
-     
+    $scope.APIKey = 'H5XW676HRUVKHEFX';
+    $scope.gettingToData = "Monthly Adjusted Time Series"
+    
+    
+//    $http({
+//      method: 'GET',
+//      url: 'https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=IBM&apikey='+$scope.APIKey
+//   }).then(function (result){
+//        $scope.tickers = result.data;
+//   });
+
+    $http({
+      method: 'GET',
+      url: 'json/testPrices.json'
+   }).then(function (result){
+        $scope.prices = result.data["Monthly Adjusted Time Series"];
+   });
     
     
     
