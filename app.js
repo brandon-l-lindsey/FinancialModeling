@@ -1,7 +1,7 @@
 /* global angular */
 
 
-var myApp = angular.module("myApp", ['angular-toArrayFilter']);
+var myApp = angular.module("myApp", ['angular-toArrayFilter', 'chart.js']);
 
 
 
@@ -67,7 +67,8 @@ myApp.controller('GraphController', ['$scope', '$http', function($scope, $http){
             var xValues = [];
             var yValues = [];
             angular.forEach($scope.messyData, function(value, key) {
-                xValues.unshift(key);
+                var adjustedDate = key.slice(5,8) + key.slice(0,4);
+                xValues.unshift(adjustedDate);
                 yValues.unshift(value["5. adjusted close"]);
             });
             $scope.xValues = xValues;
@@ -75,28 +76,32 @@ myApp.controller('GraphController', ['$scope', '$http', function($scope, $http){
        });
 
 
-    
-    
-    
-      
-    //  $scope.options = {
-    //    scales: {
-    //      yAxes: [
-    //        {
-    //          id: 'y-axis-1',
-    //          type: 'linear',
-    //          display: true,
-    //          position: 'left'
-    //        },
-    //        {
-    //          id: 'y-axis-2',
-    //          type: 'linear',
-    //          display: true,
-    //          position: 'right'
-    //        }
-    //      ]
-    //    }
+
+     $scope.labels = $scope.xValues;
+     $scope.data = $scope.yValues;
+    //  $scope.data = {
+    //      labels: $scope.xValues,
+    //      datasets: [{
+    //          label: "Historical Monthly Adjusted Stock Prices",
+    //          data: $scope.yValues,
+    //          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    //          borderColor: 'rgba(255, 99, 132, 1)',
+    //          borderWidth: 1,
+    //          fill: false
+    //      }]
     //  };
+
+      
+     $scope.options = {
+         scales: {
+             xAxes: [{
+                 type: 'time',
+                 time: {
+                     unit: 'month'
+                 }
+             }]
+         } 
+     };
    
 
     
