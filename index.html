@@ -36,10 +36,9 @@
         </div>
         
         <div ng-controller = "GraphController">
-            {{xValues}}
-            {{yValues}}
-            <canvas id="line" class="chart chart-line" chart-data="data" 
-            chart-labels="labels" chart-options="options" >
+            <canvas id="line" class="chart chart-line" chart-data="data2"
+            chart-labels="labels2" chart-colors="colors" chart-series="series2" chart-options="options2"
+            chart-dataset-override="datasetOverride2" chart-click="onClick">
             </canvas>
 
                 
