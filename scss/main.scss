@@ -1,0 +1,28 @@
+body{
+    background-color: lightgrey;
+}
+@mixin button-bg($bg) {
+    background: $bg;
+    &:hover {
+      background:darken($bg,8%);
+      transition: all 0.3s ease;
+    }
+    &:active {
+      background:darken($bg,25%);
+    } 
+  }
+  
+  .btn {
+   color:white;
+   text-decoration:none;
+   padding:5px 10px;
+   border-radius:3px;
+  }
+  
+  .btn-symbol {
+     @include button-bg(#2e92cc);
+  }
+  
+  .btn-name {
+     @include button-bg(#2e92cc);
+  }

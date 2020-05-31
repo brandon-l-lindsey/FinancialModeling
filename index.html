@@ -11,6 +11,7 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
         <script src="toArrayFilter.js"></script>
         <script type=text/javascript src="app.js"></script>
+        <link rel="stylesheet" href="css/main.css">
         
     </head>
     
@@ -21,8 +22,8 @@
     
         <div ng-controller="TickerController">
             <input type="text" ng-model="search" placeholder="Search for a stock"/>
-            <button ng-click="newSearch(search); searchBySymbol()">Search by Ticker</button>
-            <button ng-click="newSearch(search); searchByName()">Search by Name</button>
+            <button class="btn btn-symbol" ng-click="newSearch(search); searchBySymbol()">Search by Ticker</button>
+            <button class="btn btn-name" ng-click="newSearch(search); searchByName()">Search by Name</button>
             
             <ul>                
                 <li ng-show="symbolSearch" ng-repeat="ticker in tickers |toArray:false | filter:{symbol:currentSearch}:startsWith | orderBy:'symbol'">{{ticker.symbol}} --- {{ticker.name}}
@@ -36,11 +37,12 @@
         <div ng-controller = "GraphController">
             {{xValues}}
             {{yValues}}
-<!--
+            <!-- <canvas id="myChart" width="400" height="400"></canvas>
+
             <canvas id="line" class="chart chart-line" chart-data=yValues
             chart-labels=xValues chart-options=options>
-            </canvas>
--->
+            </canvas> -->
+
                 
         </div>
         

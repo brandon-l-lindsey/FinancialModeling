@@ -73,28 +73,31 @@ myApp.controller('GraphController', ['$scope', '$http', function($scope, $http){
             $scope.xValues = xValues;
             $scope.yValues = yValues;
        });
+
+
+    
     
     
       
-//      $scope.options = {
-//        scales: {
-//          yAxes: [
-//            {
-//              id: 'y-axis-1',
-//              type: 'linear',
-//              display: true,
-//              position: 'left'
-//            },
-//            {
-//              id: 'y-axis-2',
-//              type: 'linear',
-//              display: true,
-//              position: 'right'
-//            }
-//          ]
-//        }
-//      };
-//    
+    //  $scope.options = {
+    //    scales: {
+    //      yAxes: [
+    //        {
+    //          id: 'y-axis-1',
+    //          type: 'linear',
+    //          display: true,
+    //          position: 'left'
+    //        },
+    //        {
+    //          id: 'y-axis-2',
+    //          type: 'linear',
+    //          display: true,
+    //          position: 'right'
+    //        }
+    //      ]
+    //    }
+    //  };
+   
 
     
     

@@ -1,0 +1,39 @@
+body {
+  background-color: lightgrey;
+}
+
+.btn {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.btn-symbol {
+  background: #2e92cc;
+}
+
+.btn-symbol:hover {
+  background: #267aab;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.btn-symbol:active {
+  background: #174864;
+}
+
+.btn-name {
+  background: #2e92cc;
+}
+
+.btn-name:hover {
+  background: #267aab;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.btn-name:active {
+  background: #174864;
+}
+/*# sourceMappingURL=main.css.map */
