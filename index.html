@@ -35,46 +35,16 @@
             
         </div>
         
-        <div ng-controller = "GraphController">
-            <canvas id="line" class="chart chart-line" chart-data="data2"
-            chart-labels="labels2" chart-colors="colors" chart-series="series2" chart-options="options2"
-            chart-dataset-override="datasetOverride2" chart-click="onClick">
-            </canvas>
 
-                
+        
+        <div ng-controller="GraphController">
+            <input type="text" ng-model="graphSearch" width="300" placeholder="Which stock would you like to display?"/>
+            <button class="btn btn-name" ng-click="newSearch(graphSearch)">Display Graph</button>
+            <canvas id="line-chart" width="800" height="450"></canvas>
         </div>
+
         
-        <!-- <div>
-        <canvas id="myChart" width="400" height="400"></canvas>
-        <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var chart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Mar 2020','Apr 2020','May 2020'],
-                datasets: [{
-                    label: "Historical Monthly Adjusted Stock Prices",
-                    data: [109.4583,123.8942,118.3900],
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 1,
-                    fill: false
-                }],
-                options: {
-                    scales: {
-                        xAxes: [{
-                            type: 'time',
-                            time: {
-                                unit: 'month'
-                            }
-                        }]
-                    }
-                }
-            }});
-        
-        </script>
-        
-        </div> -->
+
         
     </body>
 </html>
